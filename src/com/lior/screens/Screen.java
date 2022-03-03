@@ -1,8 +1,9 @@
-package com.lior;
+package com.lior.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
+import com.lior.Logger;
 import com.lior.drawbehavior.DrawBehavior;
 import com.lior.gameobjects.Grid;
 
@@ -72,31 +73,6 @@ public abstract class Screen implements Disposable {
         }
         hasOverlay = true;
     }
-
-    /**
-     * Adds a ConnectionLostScreen to the current screen.
-     */
-//    public void addConnectionLostOverlay() {
-//        new ConnectionLostScreen(this);
-//        hasOverlay = true;
-//    }
-
-    /**
-     * Adds a MultiWaitScreen or DisqualifyScreen, depending on whether the
-     * player is disqualified or waiting.
-     *
-     * @param local
-     * 			True if the player is in the waiting state.
-     * @param local
-     * 			True if the overlay needs to be drawn on the local player.
-     */
-//    public void addBoardOverlay(boolean isWaiting, boolean local) {
-//        if(isWaiting)
-//            new MultiWaitScreen(this, local);
-//        else
-//            new DisqualifiedScreen(this, local);
-//        hasOverlay = true;
-//    }
 
     /**
      * Restarts the current Screen, removing all actors and re-adding the wanted

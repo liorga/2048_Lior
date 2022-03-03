@@ -1,5 +1,6 @@
-package com.lior;
+package com.lior.handlers;
 
+import com.lior.screens.Screen;
 import com.lior.aisolver.GridSolver;
 
 public class ScreenHandler {

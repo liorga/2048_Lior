@@ -1,13 +1,15 @@
-package com.lior;
+package com.lior.buttons;
 
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.lior.TwentyFourtyGame;
 import com.lior.drawables.DrawableGrid;
 import com.lior.drawables.DrawableTile;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Grid;
+import com.lior.handlers.ScreenHandler;
 import com.lior.states.GameState;
 import com.lior.states.LostState;
 import com.lior.states.WonState;
@@ -28,7 +30,7 @@ public class RestartButton extends TextButton {
 			this.setWidth(DrawableTile.TILE_WIDTH);
 			this.setX(DrawableTile.TILE_X - DrawableTile.TILE_WIDTH / 2
 					- TwentyFourtyGame.GAP / 2 + 2
-					* (DrawableTile.TILE_WIDTH + TwentyFourtyGame.GAP));
+					* (DrawableTile.TILE_WIDTH + TwentyFourtyGame.GAP)+70);
 		} else {
 			this.setX(TwentyFourtyGame.GAME_WIDTH / 2 - this.getWidth() / 2);
 		}

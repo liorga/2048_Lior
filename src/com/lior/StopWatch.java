@@ -1,5 +1,8 @@
 package com.lior;
 
+/**
+ * class made for see the elepsed time of running program(may not be in use)
+ */
 public class StopWatch {
     private long startTime = 0;
     private long stopTime = 0;

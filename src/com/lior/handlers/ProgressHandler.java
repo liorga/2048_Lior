@@ -1,5 +1,7 @@
-package com.lior;
+package com.lior.handlers;
 
+import com.lior.Logger;
+import com.lior.TwentyFourtyGame;
 import com.lior.gameobjects.Grid;
 
 public class ProgressHandler {

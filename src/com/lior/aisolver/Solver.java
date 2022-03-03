@@ -1,7 +1,7 @@
 package com.lior.aisolver;
 
 
-import com.lior.Game;
+import com.lior.Direction;
 import com.lior.gameobjects.Grid;
 
 public interface Solver {
@@ -16,5 +16,5 @@ public interface Solver {
 	 *            will either be used or ignored.
 	 * @return The best direction to move into.
 	 */
-	public Game.Direction findMove(Grid grid, int depth);
+	public Direction findMove(Grid grid, int depth);
 }

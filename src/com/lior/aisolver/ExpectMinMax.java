@@ -1,11 +1,8 @@
 package com.lior.aisolver;
 
-import com.lior.Game;
-import com.lior.Game.Direction;
+import com.lior.Direction;
 import com.lior.gameobjects.Grid;
 import com.lior.gameobjects.Tile;
-
-import static com.lior.Game.Direction.*;
 
 public class ExpectMinMax implements Solver{
 
@@ -59,11 +56,11 @@ public class ExpectMinMax implements Solver{
     }
 
     @Override
-    public Game.Direction findMove(Grid grid, int depth) {
+    public Direction findMove(Grid grid, int depth) {
         double bestValue = 0;
-        Game.Direction bestDirection = null;
+        Direction bestDirection = null;
 
-        for (Game.Direction dir : Game.Direction.values()) {
+        for (Direction dir : Direction.values()) {
             Grid clone = grid.clone();
             if (clone.move(dir) == false) {
                 continue;
@@ -132,7 +129,7 @@ public class ExpectMinMax implements Solver{
         }
 
         double bestValue = 0;
-        for (Game.Direction dir : Game.Direction.values()) {
+        for (Direction dir : Direction.values()) {
             Grid clone = grid.clone();
             if (clone.move(dir) == false) {
                 continue;

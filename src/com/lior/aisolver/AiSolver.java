@@ -1,21 +1,16 @@
 package com.lior.aisolver;
 
-import com.lior.FileHendler;
-import com.lior.Game;
+import com.lior.handlers.FileHendler;
+import com.lior.Direction;
 import com.lior.Logger;
-import com.lior.gameobjects.Board;
 import com.lior.gameobjects.Grid;
-import com.lior.gameobjects.Tile;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 
 
 public class AiSolver {
@@ -77,7 +72,7 @@ public class AiSolver {
         filename = String.format("lior %d %s.txt",i,date.format(new Date()));
         //fileHendler.createFile(filename);
         while (original.getPossibleMoves() != 0){
-            Game.Direction direction = expectMinMax.findMove(original, depth);
+            Direction direction = expectMinMax.findMove(original, depth);
             System.out.println("Direction selected: " + direction);
             System.out.println("Score is: " + original.getScore());
             if (direction != null) {

@@ -1,5 +1,5 @@
 package com.lior.states;
-import com.lior.ScreenHandler;
+import com.lior.handlers.ScreenHandler;
 import com.lior.gameobjects.Grid;
 
 /**

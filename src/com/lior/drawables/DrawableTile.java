@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.actions.ScaleToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.lior.Logger;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Tile;
 
 import java.util.Observable;

@@ -3,7 +3,7 @@ package com.lior.drawables;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Grid;
 
 import java.util.Observable;

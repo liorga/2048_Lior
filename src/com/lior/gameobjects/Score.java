@@ -1,4 +1,4 @@
-package com.lior;
+package com.lior.gameobjects;
 
 import javax.swing.*;
 

@@ -1,9 +1,11 @@
-package com.lior;
+package com.lior.screens;
 
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.buttons.ContinueButton;
+import com.lior.buttons.RestartButton;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Grid;
 
 /**

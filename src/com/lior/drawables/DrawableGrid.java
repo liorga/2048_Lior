@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Grid;
 import com.lior.gameobjects.Tile;
 

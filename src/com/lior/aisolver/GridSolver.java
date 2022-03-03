@@ -1,8 +1,8 @@
 package com.lior.aisolver;
 
-import com.lior.Game;
+import com.lior.Direction;
 import com.lior.Logger;
-import com.lior.PreferenceHandler;
+import com.lior.handlers.PreferenceHandler;
 import com.lior.gameobjects.Grid;
 
 import java.util.concurrent.Executors;
@@ -112,7 +112,7 @@ public class GridSolver implements Runnable {
 			logger.info(CLASSNAME, "Solver cannot make any more moves.");
 			stop();
 		} else {
-			Game.Direction direction = solver.findMove(original, depth);
+			Direction direction = solver.findMove(original, depth);
 			logger.debug(CLASSNAME, "Direction selected: " + direction);
 			if (direction != null) {
 				original.move(direction);

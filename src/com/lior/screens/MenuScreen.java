@@ -1,4 +1,4 @@
-package com.lior;
+package com.lior.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -7,8 +7,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.lior.TwentyFourtyGame;
 import com.lior.drawbehavior.DrawBeige;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
+import com.lior.handlers.ScreenHandler;
 
 public class MenuScreen extends Screen {
     /** The main label. */

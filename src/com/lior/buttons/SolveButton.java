@@ -1,13 +1,14 @@
-package com.lior;
+package com.lior.buttons;
 
 
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.lior.TwentyFourtyGame;
 import com.lior.aisolver.GridSolver;
 import com.lior.drawables.DrawableTile;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
 import com.lior.gameobjects.Grid;
 
 /**
@@ -25,7 +26,7 @@ public class SolveButton extends TextButton {
 		this.setHeight(50);
 		this.setWidth(DrawableTile.TILE_WIDTH);
 		this.setX(DrawableTile.TILE_X - DrawableTile.TILE_WIDTH / 2
-				- TwentyFourtyGame.GAP / 2);
+				+ TwentyFourtyGame.GAP*6 );
 		this.setY(100 / 2 - this.getHeight() / 2);
 
 		this.addListener(new ClickListener() {

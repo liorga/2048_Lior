@@ -1,7 +1,8 @@
-package com.lior;
+package com.lior.handlers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.lior.Logger;
 import com.lior.aisolver.GridSolver;
 import com.lior.gameobjects.Grid;
 

@@ -2,7 +2,9 @@ package com.lior;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.handlers.AssetHandler;
+import com.lior.handlers.ScreenHandler;
+import com.lior.screens.MenuScreen;
 import com.lior.states.*;
 
 public class TwentyFourtyGame extends Game {
@@ -34,7 +36,7 @@ public class TwentyFourtyGame extends Game {
     @Override
     public void create() {
        // logger.setLevel(PreferenceHandler.getInstance().getLogLevel());
-        logger.info(CLASSNAME, "Launching game...");
+        logger.info(CLASSNAME, "Starting  Game...");
         logger.debug(CLASSNAME, "Skin is loaded and menu screen is launched.");
 
         /* Load all our assets. */
@@ -55,7 +57,6 @@ public class TwentyFourtyGame extends Game {
     @Override
     public void dispose() {
         logger.info(CLASSNAME, "Closing game...");
-        //Networking.getInstance().disconnect();
         screenHandler.dispose();
         assetHandler.dispose();
         logger.dispose();
@@ -81,12 +82,12 @@ public class TwentyFourtyGame extends Game {
         return curState;
     }
 
-    /**
-     * @return True if the game is currently running.
-     */
-    public static boolean isRunning() {
-        return curState instanceof RunningState;
-    }
+//    /**
+//     * @return True if the game is currently running.
+//     */
+//    public static boolean isRunning() {
+//        return curState instanceof RunningState;
+//    }
 
     /**
      * @return True if the current game is lost.
@@ -95,39 +96,39 @@ public class TwentyFourtyGame extends Game {
         return curState instanceof LostState;
     }
 
-    /**
-     * @return True if the current game is won.
-     */
-    public static boolean isWon() {
-        return curState instanceof WonState;
-    }
+//    /**
+//     * @return True if the current game is won.
+//     */
+//    public static boolean isWon() {
+//        return curState instanceof WonState;
+//    }
+//
+//    /**
+//     * @return True if game is in continuing state.
+//     */
+//    public static boolean isContinuing() {
+//        return curState instanceof ContinuingState;
+//    }
+//
+//    /**
+//     * @return True if game is in waiting state.
+//     */
+//    public static boolean isWaiting() {
+//        return curState instanceof WaitingState;
+//    }
+//
+//    /**
+//     * @return True if game is in a disqualified state.
+//     */
+//    public static boolean isDisqualified() {
+//        return curState instanceof DisqualifiedState;
+//    }
 
-    /**
-     * @return True if game is in continuing state.
-     */
-    public static boolean isContinuing() {
-        return curState instanceof ContinuingState;
-    }
-
-    /**
-     * @return True if game is in waiting state.
-     */
-    public static boolean isWaiting() {
-        return curState instanceof WaitingState;
-    }
-
-    /**
-     * @return True if game is in a disqualified state.
-     */
-    public static boolean isDisqualified() {
-        return curState instanceof DisqualifiedState;
-    }
-
-    /** Mock insertion method. Used for testing only. */
-    public void setMockObjects(ScreenHandler screenHandlerMock,
-                               AssetHandler assetHandlerMock, Logger loggerMock) {
-        screenHandler = screenHandlerMock;
-        assetHandler = assetHandlerMock;
-        logger = loggerMock;
-    }
+//    /** Mock insertion method. Used for testing only. */
+//    public void setMockObjects(ScreenHandler screenHandlerMock,
+//                               AssetHandler assetHandlerMock, Logger loggerMock) {
+//        screenHandler = screenHandlerMock;
+//        assetHandler = assetHandlerMock;
+//        logger = loggerMock;
+//    }
 }

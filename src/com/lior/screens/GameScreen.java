@@ -1,10 +1,15 @@
-package com.lior;
+package com.lior.screens;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.lior.buttons.RestartButton;
+import com.lior.buttons.SolveButton;
+import com.lior.TwentyFourtyGame;
 import com.lior.drawables.DrawableGrid;
 import com.lior.drawables.Scores;
 import com.lior.drawbehavior.DrawBeige;
 import com.lior.gameobjects.Grid;
+import com.lior.handlers.InputHandler;
+import com.lior.handlers.ProgressHandler;
 import com.lior.states.RunningState;
 
 public class GameScreen extends Screen {

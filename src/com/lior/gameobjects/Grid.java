@@ -1,19 +1,15 @@
 package com.lior.gameobjects;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Stack;
 
-import com.lior.Game;
-import com.lior.Logger;
+import com.lior.Direction;
 import com.lior.TwentyFourtyGame;
 import com.lior.spawners.RandomSpawner;
 import com.lior.spawners.Spawner;
 import com.lior.states.RunningState;
-
-import javax.swing.*;
 
 
 /**
@@ -214,7 +210,7 @@ public class Grid extends Observable implements Cloneable {
      * @param direction The direction in which is to be moved.
      * @return true iff a move has been made, false otherwise.
      */
-    public boolean move(Game.Direction direction) {
+    public boolean move(Direction direction) {
         boolean res = false;
 
         switch (direction) {
@@ -511,50 +507,4 @@ public class Grid extends Observable implements Cloneable {
         newGrid.highestTile = highestTile;
         return newGrid;
     }
-
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-////        for (int x = 0; x < tiles.length; x++) {
-////            g.setColor(getBackground(tiles[x].getValue()));
-////            g.fillRect(32 - 20, 28 - 20, 120, 120);
-////            g.setColor(Color.BLACK);
-////            g.drawString(String.valueOf((int)Math.pow(2,tiles[x].getValue())),55,60);
-////        }
-//        for (int x = 30; x <= 600; x += 100) {
-//            for (int y = 30; y <= 600; y += 100) {
-//                g.fillRect(32 - 20, 28 - 20, 120, 120);
-//            }
-//        }
-//    }
-
-//    public Color getBackground(int value) {
-//        //returning the color by the tile value each value get different color
-//        switch (value) {
-//            case 1:
-//                return new Color(0xeee4da);
-//            case 2:
-//                return new Color(0xFFE7DAB6, true);
-//            case 3:
-//                return new Color(0xf2b179);
-//            case 4:
-//                return new Color(0xf59563);
-//            case 5:
-//                return new Color(0xf67c5f);
-//            case 6:
-//                return new Color(0xf65e3b);
-//            case 7:
-//                return new Color(0xedcf72);
-//            case 8:
-//                return new Color(0xedcc61);
-//            case 9:
-//                return new Color(0xedc850);
-//            case 10:
-//                return new Color(0xedc53f);
-//            case 11:
-//                return new Color(0xedc22e);
-//        }
-//
-//        return new Color(0xcdc1b4);
-//    }
 }

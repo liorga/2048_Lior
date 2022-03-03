@@ -1,10 +1,12 @@
-package com.lior;
+package com.lior.buttons;
 
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.lior.gameobjects.AssetHandler;
+import com.lior.TwentyFourtyGame;
+import com.lior.handlers.AssetHandler;
+import com.lior.handlers.ScreenHandler;
 import com.lior.states.ContinuingState;
 
 /**
