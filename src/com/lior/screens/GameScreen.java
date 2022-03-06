@@ -5,7 +5,7 @@ import com.lior.buttons.RestartButton;
 import com.lior.buttons.SolveButton;
 import com.lior.TwentyFourtyGame;
 import com.lior.drawables.DrawableGrid;
-import com.lior.drawables.Scores;
+import com.lior.gameobjects.Scores;
 import com.lior.drawbehavior.DrawBeige;
 import com.lior.gameobjects.Grid;
 import com.lior.handlers.InputHandler;
@@ -21,15 +21,6 @@ public class GameScreen extends Screen {
 
     /** The grid that is actually drawn. */
     private DrawableGrid drawableGrid;
-
-    /** The button to ask for a hint. */
-    //private HintButton hintButton;
-
-    /** The button to undo the last move. */
-    //private UndoButton undoButton;
-
-    /** The button to redo the last move. */
-   // private RedoButton redoButton;
 
     /** The button to restart the current game. */
     private RestartButton restartButton;
@@ -48,11 +39,8 @@ public class GameScreen extends Screen {
         stage = new Stage();
         grid = progressHandler.loadGame();
         drawableGrid = new DrawableGrid(grid.getTiles());
-//        hintButton = new HintButton(grid);
         restartButton = new RestartButton(grid, true);
         solveButton = new SolveButton(grid);
-//        undoButton = new UndoButton(grid);
-//        redoButton = new RedoButton(grid);
         scores = new Scores();
 
         grid.addObserver(scores);
@@ -74,7 +62,6 @@ public class GameScreen extends Screen {
     public void create() {
         super.create();
         stage.addListener(inputHandler);
-
         /* Create the main group and pack everything in it. */
         stage.addActor(drawableGrid);
         stage.addActor(restartButton);

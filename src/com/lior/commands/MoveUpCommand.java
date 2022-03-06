@@ -20,9 +20,7 @@ public class MoveUpCommand extends Command {
 	 */
 	@Override
 	public void execute() {
-		this.grid.getUndoStack().push(grid.toString());
 		tileHandler.moveUp();
 		updateAndSpawn();
-		this.grid.getRedoStack().clear();
 	}
 }

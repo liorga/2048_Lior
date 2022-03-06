@@ -21,10 +21,8 @@ public class MoveDownCommand extends Command {
 	 */
 	@Override
 	public void execute() {
-		this.grid.getUndoStack().push(grid.toString());
 		tileHandler.moveDown();
 		updateAndSpawn();
-		this.grid.getRedoStack().clear();
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.lior.drawables;
+package com.lior.gameobjects;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -40,7 +40,6 @@ public class Scores extends Group implements Observer {
     public Scores() {
 //        highestTile = (int) Math.pow(2, prefsHandler.getHighestTile());
 //        highScore = prefsHandler.getHighscore();
-
         scoreLabel = new Label(Integer.toString(0),
                 assetHandler.getSkin(), "score");
         highScoreLabel = new Label(Integer.toString(highScore),
@@ -49,7 +48,6 @@ public class Scores extends Group implements Observer {
                 assetHandler.getSkin(), "highest");
 
         setLabelMetrics();
-
         addLabelsToGroup();
         setLabelLocations();
     }

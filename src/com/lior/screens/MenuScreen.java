@@ -30,17 +30,11 @@ public class MenuScreen extends Screen {
 
     /** Constructs a new MenuScreen. */
     public MenuScreen() {
-        /*
-         * To resize the display when we get back to the menu from a multiplayer
-         * session.
-         */
         Gdx.graphics.setDisplayMode(600,
                 600, false);
         stage = new Stage();
         destinyLabel = new Label("Welcome to Lior Final Project!", assetHandler.getSkin().get("large", Label.LabelStyle.class));
         singlePlayer = new TextButton("Singleplayer", assetHandler.getSkin());
-        settings = new ImageButton(assetHandler.getSkin().getDrawable(
-                "settings"));
         this.setDrawBehavior(new DrawBeige(stage));
     }
 
@@ -50,8 +44,6 @@ public class MenuScreen extends Screen {
         this.stage = stage;
         this.destinyLabel = label;
         this.singlePlayer = button;
-//        this.versusComputer = button;
-//        this.multiPlayer = button;
         this.settings = settings;
         this.setDrawBehavior(new DrawBeige(stage));
     }
@@ -62,10 +54,6 @@ public class MenuScreen extends Screen {
 
         setDestinyLabelLocation();
         setSinglePlayerLocation();
-//        setMultiPlayerLocation();
-//        setVSComputerLocation();
-        setSettingsLocation();
-
         addActors();
         setupListeners();
     }
@@ -87,37 +75,10 @@ public class MenuScreen extends Screen {
                 * TwentyFourtyGame.GAP);
     }
 
-//    /** Sets the location of the multiplayer button. */
-//    private void setMultiPlayerLocation() {
-//        multiPlayer.setWidth(220);
-//        multiPlayer.setX(TwentyFourtyGame.GAME_WIDTH / 2
-//                - multiPlayer.getWidth() / 2);
-//        multiPlayer.setY(singlePlayer.getY() - singlePlayer.getHeight() - 2
-//                * TwentyFourtyGame.GAP);
-//    }
-
-//    /** Sets the location of the versus computer button. */
-//    private void setVSComputerLocation() {
-//        versusComputer.setWidth(220);
-//        versusComputer.setX(TwentyFourtyGame.GAME_WIDTH / 2
-//                - versusComputer.getWidth() / 2);
-//        versusComputer.setY(multiPlayer.getY() - multiPlayer.getHeight() - 4
-//                * TwentyFourtyGame.GAP);
-//    }
-
-    /** Sets the location of the settings button. */
-    private void setSettingsLocation() {
-        settings.setX(10);
-        settings.setY(10);
-    }
-
     /** Adds all required actors to stage. */
     private void addActors() {
         stage.addActor(destinyLabel);
         stage.addActor(singlePlayer);
-//        stage.addActor(multiPlayer);
-//        stage.addActor(versusComputer);
-        stage.addActor(settings);
     }
 
     /** Sets the listeners for all buttons. */
@@ -128,26 +89,5 @@ public class MenuScreen extends Screen {
                 screenHandler.set(new GameScreen());
             }
         });
-
-//        multiPlayer.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                screenHandler.set(new MultiMenuScreen());
-//            }
-//        });
-//
-//        versusComputer.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                screenHandler.set(new DifficultyScreen());
-//            }
-//        });
-//
-//        settings.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                screenHandler.set(new SettingsScreen());
-//            }
-//        });
     }
 }

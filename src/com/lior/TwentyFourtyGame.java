@@ -123,7 +123,7 @@ public class TwentyFourtyGame extends Game {
 //    public static boolean isDisqualified() {
 //        return curState instanceof DisqualifiedState;
 //    }
-
+//
 //    /** Mock insertion method. Used for testing only. */
 //    public void setMockObjects(ScreenHandler screenHandlerMock,
 //                               AssetHandler assetHandlerMock, Logger loggerMock) {

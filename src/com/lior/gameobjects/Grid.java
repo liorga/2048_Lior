@@ -36,13 +36,7 @@ import com.lior.states.RunningState;
  * index.
  */
 public class Grid extends Observable implements Cloneable {
-    /**
-     * This enumeration is used to indicate the direction of a movement.
-     */
-//    public enum Direction {
-//        LEFT, RIGHT, UP, DOWN;
-//    }
-
+    
     /**
      * This enumeration is used to indicate with which difficulty a new
      * tile will be spawned.
@@ -110,11 +104,6 @@ public class Grid extends Observable implements Cloneable {
      */
     private int highestTile;
 
-    /**
-     * The stacks for undo/redo, keeping track of the moves made.
-     */
-    private Stack<String> undo;
-    private Stack<String> redo;
 
     /**
      * Creates a new Grid with NTILES Tile objects.
@@ -125,8 +114,7 @@ public class Grid extends Observable implements Cloneable {
         this.tiles = new Tile[NTILES];
         this.iterator = new TileIterator(tiles);
         this.tileHandler = new TileHandler(this);
-        this.undo = new Stack<String>();
-        this.redo = new Stack<String>();
+
         this.difficulty = Difficulty.RANDOM;
 
         for (int i = 0; i < tiles.length; i++) {
@@ -193,9 +181,6 @@ public class Grid extends Observable implements Cloneable {
         highestTile = 0;
         updateHighestTile();
 
-        undo.clear();
-        redo.clear();
-
         TwentyFourtyGame.setState(RunningState.getInstance());
         changed();
     }
@@ -247,7 +232,6 @@ public class Grid extends Observable implements Cloneable {
         if (!tileHandler.isMoveMade()) {
             return;
         }
-
         updateScore();
         spawnNewTile();
         updateHighestTile();
@@ -425,20 +409,6 @@ public class Grid extends Observable implements Cloneable {
      */
     public String getGridName() {
         return gridName;
-    }
-
-    /**
-     * @return The stack containing string representations of all past grids.
-     */
-    public Stack<String> getUndoStack() {
-        return undo;
-    }
-
-    /**
-     * @return The stack containing string representations of all undone grids.
-     */
-    public Stack<String> getRedoStack() {
-        return redo;
     }
 
     /**

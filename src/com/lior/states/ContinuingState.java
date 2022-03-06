@@ -27,17 +27,17 @@ public class ContinuingState implements GameState{
 	public void update(Grid grid) {
 	}
 
-	@Override
-	public void update(Grid localgrid, Grid remotegrid) {
-		/*
-		 * In a multiplayer mode a player can enter Continueing if the other
-		 * player has cheater because of that we need to add the overlay after
-		 * the screen has been reset
-		 */
-		if (!screenHandler.getScreen().hasOverlay()) {
-			//screenHandler.getScreen().addBoardOverlay(false, false);
-		}
-	}
+//	@Override
+//	public void update(Grid localgrid, Grid remotegrid) {
+//		/*
+//		 * In a multiplayer mode a player can enter Continueing if the other
+//		 * player has cheater because of that we need to add the overlay after
+//		 * the screen has been reset
+//		 */
+//		if (!screenHandler.getScreen().hasOverlay()) {
+//			//screenHandler.getScreen().addBoardOverlay(false, false);
+//		}
+//	}
 
 	/** For testing purposes only */
 	public void setScreenHandler(ScreenHandler handler) {

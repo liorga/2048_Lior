@@ -64,6 +64,7 @@ public abstract class Screen implements Disposable {
      * @param grid
      *            The grid of the current game.
      */
+    //todo remove isMulti
     public void addLWOverlay(boolean isMulti, boolean isWon, Grid grid) {
         if (isWon) {
             new WinScreen(this, grid);

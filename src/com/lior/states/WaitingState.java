@@ -34,32 +34,32 @@ public class WaitingState implements GameState {
 	public void update(Grid grid) {
 	}
 
-	@Override
-	public void update(Grid localGrid, Grid remoteGrid) {
-		/*
-		 * Lose condition: I lose while waiting if he gets a higher score than
-		 * mine
-		 */
-		if (localGrid.getScore() < remoteGrid.getScore()) {
-			lose(remoteGrid);
-		}
-
-		/*
-		 * Win condition: i win because he couldn't beat my score and we both
-		 * ran out of moves
-		 */
-		else if (localGrid.getScore() > remoteGrid.getScore()
-				&& (remoteGrid.getPossibleMoves() == 0)) {
-			win(localGrid);
-		}
-
-		/* Win condition: Both ran out of moves, same score but i was first. */
-		else if ((localGrid.getPossibleMoves() == 0)
-				&& (remoteGrid.getPossibleMoves() == 0)
-				&& (localGrid.getScore() == remoteGrid.getScore())) {
-			win(localGrid);
-		}
-	}
+//	@Override
+//	public void update(Grid localGrid, Grid remoteGrid) {
+//		/*
+//		 * Lose condition: I lose while waiting if he gets a higher score than
+//		 * mine
+//		 */
+//		if (localGrid.getScore() < remoteGrid.getScore()) {
+//			lose(remoteGrid);
+//		}
+//
+//		/*
+//		 * Win condition: i win because he couldn't beat my score and we both
+//		 * ran out of moves
+//		 */
+//		else if (localGrid.getScore() > remoteGrid.getScore()
+//				&& (remoteGrid.getPossibleMoves() == 0)) {
+//			win(localGrid);
+//		}
+//
+//		/* Win condition: Both ran out of moves, same score but i was first. */
+//		else if ((localGrid.getPossibleMoves() == 0)
+//				&& (remoteGrid.getPossibleMoves() == 0)
+//				&& (localGrid.getScore() == remoteGrid.getScore())) {
+//			win(localGrid);
+//		}
+//	}
 
 	/** Handles the state if the local player should lose. */
 	private void lose(Grid remoteGrid) {

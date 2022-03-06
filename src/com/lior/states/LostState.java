@@ -22,7 +22,7 @@ public class LostState implements GameState{
 	public void update(Grid grid) {	
 	}
 
-	@Override
-	public void update(Grid localgrid, Grid remotegrid) {
-	}
+//	@Override
+//	public void update(Grid localgrid, Grid remotegrid) {
+//	}
 }
