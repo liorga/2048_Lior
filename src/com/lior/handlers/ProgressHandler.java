@@ -5,25 +5,18 @@ import com.lior.TwentyFourtyGame;
 import com.lior.gameobjects.Grid;
 
 public class ProgressHandler {
-    /** The classname, used for logging output. */
-    private static final String CLASSNAME = ProgressHandler.class
-            .getSimpleName();
 
-    /** A singleton reference to the this class. */
+    private static final String CLASSNAME = ProgressHandler.class.getSimpleName();
+
     private static ProgressHandler instance = new ProgressHandler();
 
-    /** A PrefenceHanlder singleton instance. */
-    private static PreferenceHandler prefsHandler = PreferenceHandler
-            .getInstance();
+    private static PreferenceHandler prefsHandler = PreferenceHandler.getInstance();
 
-    /** A singleton reference to the logger. */
     private static Logger logger = Logger.getInstance();
 
-    /** Overrides the default constructor. */
     private ProgressHandler() {
     }
 
-    /** Returns the singleton reference to this class. */
     public static ProgressHandler getInstance() {
         return instance;
     }
@@ -49,26 +42,14 @@ public class ProgressHandler {
         if (highest > prefsHandler.getHighestTile()) {
             prefsHandler.setHighest(highest);
         }
+
         if (score > prefsHandler.getHighscore()) {
             prefsHandler.setHighscore(score);
         }
-
-        logger.info(
-                CLASSNAME,
-                "Saved the games with the grid: " + grid.toString()
-                        + ". Highscore: "
-                        + Integer.toString(prefsHandler.getHighscore())
-                        + ". Highest tile: "
-                        + Integer.toString(prefsHandler.getHighestTile())
-                        + ". Score: "
-                        + Integer.toString(prefsHandler.getScore()) + ".");
     }
 
     /**
-     * Loads the saved grid, score, high score and highest tile value ever
-     * reached.
-     *
-     * @return The loaded Grid.
+     * Loads the saved grid,
      */
     public Grid loadGame() {
         Grid grid = loadGrid();
@@ -76,34 +57,15 @@ public class ProgressHandler {
         return grid;
     }
 
-    /**
-     * Loads the saved grid, score, high score and highest tile value ever
-     * reached.
-     *
-     * @return The loaded Grid.
-     */
     public Grid loadGame(Grid grid) {
         logger.info(CLASSNAME, "Loading game from preference file...");
 
         grid.setDifficulty(prefsHandler.getDifficulty());
-        grid.setScore(prefsHandler.getScore());
         grid.updateHighestTile();
-
-        logger.info(
-                CLASSNAME,
-                "Game has been loaded: " + grid.toString() + ". Highscore: "
-                        + Integer.toString(prefsHandler.getHighscore())
-                        + ". Highest tile: "
-                        + Integer.toString(prefsHandler.getHighestTile())
-                        + ". Score: "
-                        + Integer.toString(prefsHandler.getScore()) + ".");
 
         return grid;
     }
 
-    /**
-     * Loads the saved grid. If no grid is saved, returns a default grid.
-     */
     private Grid loadGrid() {
         logger.info(CLASSNAME, "Loading saved grid...");
         String filledTiles = prefsHandler.getGrid();

@@ -19,8 +19,6 @@ public class Scores extends Group implements Observer {
 
     /** The singleton AssetHandler instance used to access our assets. */
     private AssetHandler assetHandler = AssetHandler.getInstance();
-    /** The singleton PreferenceHandler instance used to acces our saved game. */
-    //private PreferenceHandler prefsHandler = PreferenceHandler.getInstance();
 
     /** Labels to display scores. */
     private Label scoreLabel;
@@ -38,26 +36,12 @@ public class Scores extends Group implements Observer {
      * labels and positions them.
      */
     public Scores() {
-//        highestTile = (int) Math.pow(2, prefsHandler.getHighestTile());
-//        highScore = prefsHandler.getHighscore();
         scoreLabel = new Label(Integer.toString(0),
                 assetHandler.getSkin(), "score");
         highScoreLabel = new Label(Integer.toString(highScore),
                 assetHandler.getSkin(), "highscore");
         highestTileLabel = new Label(Integer.toString(highestTile),
                 assetHandler.getSkin(), "highest");
-
-        setLabelMetrics();
-        addLabelsToGroup();
-        setLabelLocations();
-    }
-
-    /** Constructor for testing purposes only */
-    public Scores(Label mockLabel) {
-        //highestTile = (int) Math.pow(2, prefsHandler.getHighestTile());
-        this.scoreLabel = mockLabel;
-        this.highScoreLabel = mockLabel;
-        this.highestTileLabel = mockLabel;
 
         setLabelMetrics();
         addLabelsToGroup();
@@ -102,22 +86,6 @@ public class Scores extends Group implements Observer {
         this.addActor(scoreLabel);
         this.addActor(highScoreLabel);
         this.addActor(highestTileLabel);
-    }
-
-    /**
-     * @return The current high score. It is not necessarily higher than the saved
-     *         high score. This is checked when saving the game.
-     */
-    public int getHighScore() {
-        return highScore;
-    }
-
-    /**
-     * @return The currently highest tile ever reached. This is not necessarily
-     *         from the current game.
-     */
-    public int getHighestTile() {
-        return highestTile;
     }
 
     /**

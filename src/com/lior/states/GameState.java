@@ -11,8 +11,5 @@ public interface GameState {
 	*/
 	public void update(Grid grid);
 
-	/**
-	 * The update(grid,grid) method is used to update multiplayer states.
-	 */
-	//public void update(Grid localgrid, Grid remotegrid);
+
 }

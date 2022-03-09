@@ -10,27 +10,16 @@ import com.lior.commands.*;
 import com.lior.gameobjects.Grid;
 
 public class InputHandler extends InputListener {
-    /** Get current class name, used for logging output. */
-    private static final String CLASSNAME = InputHandler.class.getSimpleName();
 
+    private static final String CLASSNAME = InputHandler.class.getSimpleName();
+    private static Logger logger = Logger.getInstance();
+    private Command command;
     /**
      * A reference to the current Grid, so the called objects can interact with
      * it.
      */
     private Grid grid;
 
-    /** The singleton reference to the Logger instance. */
-    private static Logger logger = Logger.getInstance();
-
-    /** The current command that can be executed. */
-    private Command command;
-
-    /**
-     * Creates a new InputHandler instance.
-     *
-     * @param grid
-     *            A reference to the current Grid.
-     */
     public InputHandler(Grid grid) {
         this.grid = grid;
     }
@@ -68,14 +57,9 @@ public class InputHandler extends InputListener {
         return false;
     }
 
-    /** Sets and executes the provided command. */
     public void executeCommand(Command command) {
         this.command = command;
         this.command.execute();
     }
 
-    /** Returns the current command. */
-    public Command getCommand() {
-        return command;
-    }
 }

@@ -3,12 +3,10 @@ package com.lior.gameobjects;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Stack;
 
-import com.lior.Direction;
 import com.lior.TwentyFourtyGame;
-import com.lior.spawners.RandomSpawner;
-import com.lior.spawners.Spawner;
+import com.lior.randomize.RandomTile;
+import com.lior.randomize.Maker;
 import com.lior.states.RunningState;
 
 
@@ -130,7 +128,7 @@ public class Grid extends Observable implements Cloneable {
      * leaving the rest empty.
      */
     private void initGrid() {
-        Spawner randomSpawner = RandomSpawner.getInstance();
+        Maker randomSpawner = RandomTile.getInstance();
 
         Tile random = randomSpawner.findTile(this);
         tiles[random.getIndex()].setValue(random.getValue());
@@ -243,7 +241,7 @@ public class Grid extends Observable implements Cloneable {
      * Updates the score with the score increment from the TileHandler class.
      */
     private void updateScore() {
-        score += tileHandler.getScoreIncrement();
+        score += tileHandler.getScoreInc();
         //logger.info(gridName, "Score value set to " + score + ".");
     }
 
@@ -251,9 +249,9 @@ public class Grid extends Observable implements Cloneable {
      * Spawns a Tile at a random empty location.
      */
     public void spawnNewTile() {
-        Spawner spawner;
+        Maker spawner;
 
-        spawner = RandomSpawner.getInstance();
+        spawner = RandomTile.getInstance();
 
         Tile tile = spawner.findTile(this);
         int location = tile.getIndex();

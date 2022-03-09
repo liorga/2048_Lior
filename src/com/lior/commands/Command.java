@@ -25,19 +25,6 @@ public abstract class Command {
 	}
 
 	/**
-	 * Sets the string representation of a grid as the grid.
-	 * 
-	 * @param string
-	 *            that represents the old grid.
-	 */
-	public void setStringAsGrid(String string) {
-		String[] temp = string.split(",");
-		for (int i = 0; i < temp.length; i++) {
-			grid.setTile(i, Integer.parseInt(temp[i]));
-		}
-	}
-
-	/**
 	 * Calls grid to update everything after a move and resets the TileHandler.
 	 */
 	public void updateAndSpawn() {

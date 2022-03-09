@@ -32,22 +32,6 @@ public class WinScreen {
 		image = new Image(AssetHandler.getInstance().getSkin(), "wonoverlay");
 		restartButton = new RestartButton(grid, false);
 		continueButton = new ContinueButton();
-
-		addActors();
-	}
-
-	/** Constructor for testing only */
-	public WinScreen(Stage stage, Image image, RestartButton rButton,
-			ContinueButton cButton) {
-		this.stage = stage;
-		this.image = image;
-		restartButton = rButton;
-		continueButton = cButton;
-		addActors();
-	}
-
-	/** Adds the actors of this overlay to its parent screen. */
-	private void addActors() {
 		stage.addActor(image);
 		stage.addActor(continueButton);
 		stage.addActor(restartButton);

@@ -54,24 +54,6 @@ public class DrawableTile extends Actor implements Observer {
         setBaseCoordinates();
     }
 
-    /**
-     * Constructor for testing purposes: takes a TextureRegion as parameters to
-     * allow mocking.
-     *
-     * @param region
-     *            The TextureRegion this Tile will use to draw itself.
-     */
-    public DrawableTile(int index, int value, TextureRegion region) {
-        this.index = index;
-        this.value = value;
-        this.skin = AssetHandler.getInstance().getSkin();
-        this.region = region;
-        setSprite(skin);
-        setMetrics();
-        updateBaseCoordinates();
-        setBaseCoordinates();
-    }
-
     /** Sets the Tile's width and height. */
     private void setMetrics() {
         setWidth(TILE_WIDTH);
@@ -105,13 +87,13 @@ public class DrawableTile extends Actor implements Observer {
 
     /** Updates the animations after the observed Tile has changed. */
     private void updateAnimations(Tile tile) {
-        if (tile.shouldMerge()) {
+        if (tile.isMerging()) {
             merge();
         }
-        if (tile.shouldMove()) {
+        if (tile.isMove()) {
             move(tile.getDestination());
         }
-        if (tile.shouldSpawn()) {
+        if (tile.isSpawn()) {
             spawn();
         }
         finishActions();

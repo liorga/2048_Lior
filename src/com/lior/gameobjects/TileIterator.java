@@ -7,13 +7,11 @@ import java.util.Iterator;
  * without having to care about the internal representation.
  */
 public class TileIterator implements Iterator<Tile> {
-    /** A reference to the array of Tiles. */
+
     private Tile[] tiles;
 
-    /** The current position in the array. */
     private int index;
 
-    /** Constructs a new TileIterator. */
     public TileIterator(Tile[] tiles) {
         this.tiles = tiles;
         this.index = 0;
@@ -30,8 +28,7 @@ public class TileIterator implements Iterator<Tile> {
     }
 
     /**
-     * Resets the position to zero, so the iterator can be used again instead of
-     * having to create a new one.
+     * Resets the position to zero, so the iterator can be used again
      */
     public void reset() {
         this.index = 0;
@@ -44,7 +41,6 @@ public class TileIterator implements Iterator<Tile> {
         return this.index;
     }
 
-    /* Needed on Windows machines. */
     @Override
     public void remove() {
     }

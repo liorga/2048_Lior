@@ -4,20 +4,17 @@ import com.lior.screens.Screen;
 import com.lior.aisolver.GridSolver;
 
 public class ScreenHandler {
-    /** The unique singleton instance of this class. */
+
     private static ScreenHandler instance = new ScreenHandler();
 
     /** The screen currently being managed, which is also the
      * screen currently on display. */
     private Screen screen;
 
-    /** Overrides the default constructor. */
     private ScreenHandler() {
+
     }
 
-    /**
-     * @return The singleton instance of the ScreenHandler.
-     */
     public static ScreenHandler getInstance() {
         return instance;
     }
@@ -25,9 +22,6 @@ public class ScreenHandler {
     /**
      * Sets the specified screen to be the current screen. Disposes the current
      * screen if it is not null and resizes the screen if necessary.
-     *
-     * @param screen
-     *            The screen.
      */
     public void set(Screen screen) {
         if (this.screen != null) {

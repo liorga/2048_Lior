@@ -1,27 +1,24 @@
-package com.lior.spawners;
+package com.lior.randomize;
 
 import com.lior.gameobjects.Grid;
 import com.lior.gameobjects.Tile;
 
-public class RandomSpawner implements Spawner {
-    /** The unique singleton instance of this class. */
-    private static RandomSpawner instance = new RandomSpawner();
+public class RandomTile implements Maker {
+    private static RandomTile instance = new RandomTile();
 
     /** Overrides the default constructor. */
-    private RandomSpawner() {
+    private RandomTile() {
     }
 
     /**
      * @return The singleton instance of the RandomSpawner.
      */
-    public static RandomSpawner getInstance() {
+    public static RandomTile getInstance() {
         return instance;
     }
 
     /**
-     * @return A Tile on a random location, with a value of either 2 or 4. The
-     *         chances of getting a value of 2 are 90%, while the changes of a
-     *         value of 4 are 10%.
+     * chances of getting a value of 2 are 90%, while the changes of a value of 4 are 10%.
      */
     @Override
     public Tile findTile(Grid grid) {

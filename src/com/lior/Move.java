@@ -1,5 +1,6 @@
 package com.lior;
 
+import com.lior.gameobjects.Direction;
 import com.lior.gameobjects.Grid;
 
 public interface Move {

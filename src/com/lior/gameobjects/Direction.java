@@ -1,4 +1,5 @@
-package com.lior;
+package com.lior.gameobjects;
+
 public enum Direction {
         UP,
         RIGHT,

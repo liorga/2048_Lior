@@ -1,7 +1,5 @@
 package com.lior.gameobjects;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.Observable;
 
 public class Tile extends Observable {
@@ -53,16 +51,12 @@ public class Tile extends Observable {
         changed();
     }
 
-    /**
-     * @return The index of the Tile into the Grid array.
-     */
+
     public int getIndex() {
         return this.index;
     }
 
-    /**
-     * @return The index of the Tile to move to.
-     */
+
     public int getDestination() {
         return destIndex;
     }
@@ -70,33 +64,22 @@ public class Tile extends Observable {
     /**
      * Sets the index of the Tile into the Grid array and updates the x and y
      * coordinates accordingly.
-     *
-     * @param index
-     *            The new index.
      */
     public void setIndex(int index) {
         this.index = index;
     }
 
-    /**
-     * @return True if the tile is empty (value 0), false otherwise.
-     */
     public boolean isEmpty() {
         return this.value == 0;
     }
 
-    /**
-     * @return True if this Tile has been merged, false otherwise.
-     */
+
     public boolean isMerged() {
         return this.isMerged;
     }
 
     /**
      * Sets the merged state of this Tile.
-     *
-     * @param isMerged
-     *            The new merged state.
      */
     public void setMerged(boolean isMerged) {
         this.isMerged = isMerged;
@@ -111,7 +94,7 @@ public class Tile extends Observable {
     }
 
     /** Doubles the value of the Tile. */
-    public void doubleValue() {
+    public void incValue() {
         setValue(++value);
     }
 
@@ -134,27 +117,21 @@ public class Tile extends Observable {
         moving = true;
         this.destIndex = destIndex;
         changed();
-        /*
-         * After notifying the observers, update this Tile's index. This needs
-         * to be done after notifying as the destination would otherwise be the
-         * same as the current index.
-         */
         index = destIndex;
         moving = false;
     }
 
-    /** @return True iff the tile should merge. */
-    public boolean shouldMerge() {
+
+    public boolean isMerging() {
         return merging;
     }
 
-    /** @return True iff the tile should move. */
-    public boolean shouldMove() {
+
+    public boolean isMove() {
         return moving;
     }
 
-    /** @return True iff the tile should spawn. */
-    public boolean shouldSpawn() {
+    public boolean isSpawn() {
         return spawning;
     }
 
@@ -170,5 +147,4 @@ public class Tile extends Observable {
     public String toString() {
         return Integer.toString(value);
     }
-
 }

@@ -6,14 +6,12 @@ import com.lior.gameobjects.Grid;
  * It is the state where the player has won according to a win condition .
  */
 public class WonState implements GameState{
-	/** The unique singleton instance of this class. */
+
 	private static WonState instance = new WonState();
 
-	/** Overrides the default constructor. */
 	private WonState() {		
 	}
 
-	/** @return The singleton instance of the state*/
 	public static WonState getInstance() {
 		return instance;
 	}
@@ -22,7 +20,4 @@ public class WonState implements GameState{
 	public void update(Grid grid) {
 	}
 
-//	@Override
-//	public void update(Grid localgrid, Grid remotegrid) {
-//	}
 }

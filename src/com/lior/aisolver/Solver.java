@@ -1,7 +1,7 @@
 package com.lior.aisolver;
 
 
-import com.lior.Direction;
+import com.lior.gameobjects.Direction;
 import com.lior.gameobjects.Grid;
 
 public interface Solver {

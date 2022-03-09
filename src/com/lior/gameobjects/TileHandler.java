@@ -23,7 +23,7 @@ public class TileHandler {
     private boolean isMoveMade;
 
     /** The points to be awarded to the player */
-    private int scoreIncrement;
+    private int scoreInc;
 
     /**
      * Constructs a new TileHandler object.
@@ -34,24 +34,15 @@ public class TileHandler {
     public TileHandler(Grid grid) {
         this.grid = grid;
         this.tiles = grid.getTiles();
-        this.scoreIncrement = 0;
+        this.scoreInc = 0;
         this.isMoveMade = false;
     }
 
-    /**
-     * Performs a move to the left.
-     */
     public void moveLeft() {
         TileIterator iterator = null;
         /* For each row in the grid, check if moves can be made. */
         for (int index = 0; index < tiles.length; index += ROW_LENGTH) {
             for (int i = 0; i < ROW_LENGTH; i++) {
-                /*
-                 * FIXME: quite some iterators are created, try to reduce this.
-                 * Creates a new TileIterator for a certain row. This is done
-                 * for each time a row is checked for moves to make sure the
-                 * references to the tiles are up to date.
-                 */
                 iterator = new TileIterator(Arrays.copyOfRange(tiles, index,
                         index + ROW_LENGTH));
                 move(iterator);
@@ -61,9 +52,7 @@ public class TileHandler {
         grid.setTiles(tiles);
     }
 
-    /**
-     * Performs a move to the right.
-     */
+
     public void moveRight() {
         tiles = rotate(180);
         moveLeft();
@@ -71,9 +60,7 @@ public class TileHandler {
         grid.setTiles(tiles);
     }
 
-    /**
-     * Performs a move downwards.
-     */
+
     public void moveDown() {
         tiles = rotate(90);
         moveLeft();
@@ -81,9 +68,7 @@ public class TileHandler {
         grid.setTiles(tiles);
     }
 
-    /**
-     * Performs a move upwards.
-     */
+
     public void moveUp() {
         tiles = rotate(270);
         moveLeft();
@@ -93,9 +78,6 @@ public class TileHandler {
 
     /**
      * The method that actually performs the move.
-     *
-     * @param iterator
-     *            The TileIterator to iterate over the tiles.
      */
     private void move(TileIterator iterator) {
         Tile collidee = null;
@@ -119,13 +101,7 @@ public class TileHandler {
     }
 
     /**
-     * Handles the move except for merging, which is handled in
-     * {@link #handleMerge(Tile) handleMerge}.
-     *
-     * @param collider
-     *            The colliding Tile.
-     * @param collidee
-     *            The Tile that is collided with.
+     * Handles the move and updating the indexes
      */
     private void handleMove(Tile collider, Tile collidee) {
         isMoveMade = true;
@@ -140,23 +116,16 @@ public class TileHandler {
 
     /**
      * Updates the variables of the the colliding Tile after a merge.
-     *
-     * @param collider
-     *            The colliding Tile.
      */
     private void handleMerge(Tile collider) {
-        collider.doubleValue();
+        collider.incValue();
         collider.setMerged(true);
         collider.merge();
-        scoreIncrement += Math.pow(2, collider.getValue());
+        scoreInc += Math.pow(2, collider.getValue());
     }
 
     /**
-     * Rotates the grid.
-     *
-     * @param angle
-     *            The angle by which to rotate.
-     * @return The rotated Grid.
+     * Rotates the grid to an angle that we went
      */
     private Tile[] rotate(int angle) {
         Tile[] res = new Tile[16];
@@ -183,9 +152,6 @@ public class TileHandler {
 
     /**
      * Resets all merged tiles in a row or column so they can merge again.
-     *
-     * @param iterator
-     *            The TileIterator to iterate over the tiles.
      */
     private void resetMerged(TileIterator iterator) {
         while (iterator.hasNext()) {
@@ -202,17 +168,17 @@ public class TileHandler {
     }
 
     /**
-     * @return The value by which the score should be incremented.
+     * @return The value to be incremented.
      */
-    public int getScoreIncrement() {
-        return this.scoreIncrement;
+    public int getScoreInc() {
+        return this.scoreInc;
     }
 
     /**
-     * Prepares the TileHandler for the next round of moving tiles.
+     * Prepares for the next round of moving tiles.
      */
     public void reset() {
-        this.scoreIncrement = 0;
+        this.scoreInc = 0;
         this.isMoveMade = false;
     }
 }

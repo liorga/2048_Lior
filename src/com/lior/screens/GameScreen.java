@@ -13,28 +13,21 @@ import com.lior.handlers.ProgressHandler;
 import com.lior.states.RunningState;
 
 public class GameScreen extends Screen {
-    /** The grid holding all the Tiles. */
+
     private Grid grid;
 
-    /** The score tiles above the Grid. */
     private Scores scores;
 
-    /** The grid that is actually drawn. */
     private DrawableGrid drawableGrid;
 
-    /** The button to restart the current game. */
     private RestartButton restartButton;
 
-    /** The button to let a solver solve the game. */
     private SolveButton solveButton;
 
-    /** The singleton reference to the ProgressHandler class. */
     private ProgressHandler progressHandler = ProgressHandler.getInstance();
 
-    /** The InputHandler receives and processes the received input. */
     private InputHandler inputHandler;
 
-    /** Constructs a new GameScreen. */
     public GameScreen() {
         stage = new Stage();
         grid = progressHandler.loadGame();
@@ -47,15 +40,6 @@ public class GameScreen extends Screen {
         this.setDrawBehavior(new DrawBeige(stage));
 
         inputHandler = new InputHandler(grid);
-    }
-
-    /** Constructor to insert Mock objects. For testing only. */
-    public GameScreen(Stage stage, Grid grid,Scores scores) {
-        this.stage = stage;
-        this.grid = grid;
-        this.scores = scores;
-        grid.addObserver(scores);
-        this.setDrawBehavior(new DrawBeige(stage));
     }
 
     @Override

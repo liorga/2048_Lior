@@ -11,13 +11,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.lior.Logger;
 
 public class AssetHandler {
-    /** Get current class name, used for logging output. */
+
     private static final String CLASSNAME = AssetHandler.class.getSimpleName();
 
-    /** The unique singleton instance of this class. */
     private static AssetHandler instance = new AssetHandler();
 
-    /** The singleton reference to the Logger instance. */
     private static Logger logger = Logger.getInstance();
 
     /** The AssetManager is used to load and get all our textures and font. */
@@ -29,15 +27,11 @@ public class AssetHandler {
     /** Generates a BitmapFont on the fly via a .ttf file. */
     private FreeTypeFontGenerator generator;
 
-    /** Overrides the default constructor. */
     private AssetHandler() {
         manager = new AssetManager();
         skin = new Skin();
     }
 
-    /**
-     * @return The singleton instance of this class.
-     */
     public static AssetHandler getInstance() {
         return instance;
     }
@@ -45,15 +39,14 @@ public class AssetHandler {
     /**
      * Instructs the AssetManager to load all the required assets (textures and
      * fonts).
-     *
-     * Blocks until the AssetManager is done.
+     * blocking method
      */
     public void load() {
         logger.debug(CLASSNAME, "Loading assets...");
 
         generateFonts();
 
-        /* Queue all of these items for loading. */
+        /* all of these items for loading. */
         manager.load("images/icons/icons.atlas", TextureAtlas.class);
         manager.load("images/tiles/tiles.atlas", TextureAtlas.class);
         manager.load("images/scoretiles/scoretiles.atlas", TextureAtlas.class);
@@ -64,7 +57,7 @@ public class AssetHandler {
         manager.load("images/overlays/lostoverlay.png", Texture.class);
         manager.load("images/overlays/wonoverlay.png", Texture.class);
         /*
-         * Instruct the asset manager to load everything in its queue, block
+         * Instruct the asset manager to load everything and block
          * until this is done.
          */
         manager.finishLoading();
@@ -135,35 +128,6 @@ public class AssetHandler {
      */
     public Skin getSkin() {
         return skin;
-    }
-
-    /**
-     * Sets the AssetManager and the Font generator to be used by the
-     * AssetHandler. Needed for the headless application which is used for
-     * DevHub. Since DevHub cannot make use of GL related classes, it is
-     * necessary to test the AssetHandler in a very specific way. See
-
-     *
-     * @param assetManager
-     *            The AssetManager to be used by the AssetHandler.
-     */
-    public void setAssetMocks(AssetManager assetManager,
-                              FreeTypeFontGenerator generator) {
-        manager = assetManager;
-        this.generator = generator;
-    }
-
-    /**
-     * Sets the Skin to be used by the AssetHandler. Needed for the headless
-     * application which is used for DevHub. Since DevHub cannot make use of GL
-     * related classes, it is necessary to test the AssetHandler in a very
-
-     *
-     * @param newSkin
-     *            The Skin to be used by the AssetHandler.
-     */
-    public void setSkin(Skin newSkin) {
-        skin = newSkin;
     }
 
     /**

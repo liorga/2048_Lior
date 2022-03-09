@@ -56,16 +56,8 @@ public abstract class Screen implements Disposable {
     /**
      * Adds a Lost or Won overlay, depending on whether the game is won, lost,
      * and if it's in multiplayer mode.
-     *
-     * @param isMulti
-     *            True if the game is in Multiplayer mode.
-     * @param isWon
-     *            True if the game is won.
-     * @param grid
-     *            The grid of the current game.
      */
-    //todo remove isMulti
-    public void addLWOverlay(boolean isMulti, boolean isWon, Grid grid) {
+    public void addLWOverlay(boolean isWon, Grid grid) {
         if (isWon) {
             new WinScreen(this, grid);
         }
@@ -98,10 +90,4 @@ public abstract class Screen implements Disposable {
         return stage;
     }
 
-    /**
-     * @return True iff this screen has an overlay added to its stage.
-     */
-    public boolean hasOverlay() {
-        return hasOverlay;
-    }
 }

@@ -1,6 +1,6 @@
 package com.lior.aisolver;
 
-import com.lior.Direction;
+import com.lior.gameobjects.Direction;
 import com.lior.Logger;
 import com.lior.handlers.PreferenceHandler;
 import com.lior.gameobjects.Grid;
@@ -31,7 +31,7 @@ public class GridSolver implements Runnable {
 	/** The singleton reference to the Logger instance. */
 	private static Logger logger = Logger.getInstance();
 
-	/** The scheduler and its future tasks used to make moves with fixed delay. */
+	/** The scheduler and its future tasks used to make moves with fixed delay */
 	private ScheduledExecutorService timer;
 	private ScheduledFuture<?> future;
 
@@ -43,9 +43,6 @@ public class GridSolver implements Runnable {
 
 	/** An indication on whether this solver is running. */
 	private boolean running;
-
-	/** The strategy to be used by the GridSolver. */
-	private Strategy strategy;
 
 	/**
 	 * The recursion depth to use. Depending on the used solver, this may be
@@ -59,10 +56,7 @@ public class GridSolver implements Runnable {
 	/** Constructs a new GridSolver. */
 	private GridSolver() {
 		this.delay = PreferenceHandler.getInstance().getSolverDelay();
-		//this.delay = 300;
-		strategy = PreferenceHandler.getInstance().getSolverStrategy();
 		depth = 6;
-
 		timer = Executors.newScheduledThreadPool(1);
 		running = false;
 		this.solver = ExpectMinMax.getInstance();
@@ -150,9 +144,9 @@ public class GridSolver implements Runnable {
 	/**
 	 * Setter for testing purposes only.
 	 */
-	public void setTestObjects(Logger logger, Strategy strategy, Grid grid) {
-		GridSolver.logger = logger;
-		this.strategy = strategy;
-		this.original = grid;
-	}
+//	public void setTestObjects(Logger logger, Strategy strategy, Grid grid) {
+//		GridSolver.logger = logger;
+//		//this.strategy = strategy;
+//		this.original = grid;
+//	}
 }
